@@ -1,0 +1,25 @@
+# godot 4.x - ignore cache and platform-specific exports
+.import/
+.godot/
+android/
+ios/
+export.cfg
+export_presets.cfg
+
+# ignore imported resources
+*.import
+
+# ignore temporary or debug files
+*.tmp
+*.log
+*.mono/
+mono_crash.*
+
+# backup files
+*.godot~*
+
+# OS-specific junk
+.DS_Store
+Thumbs.db
+
+
