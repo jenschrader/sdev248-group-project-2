@@ -13,7 +13,7 @@ func _ready():
 func typewriter_effect():
 	for i in story_text.length():
 		label.text += story_text[i]
-		await get_tree().create_timer(0.05).timeout
+		await get_tree().create_timer(0.035).timeout
 	await get_tree().create_timer(0.3).timeout
 	continue_button.visible = true
 
