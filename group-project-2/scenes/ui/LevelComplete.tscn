@@ -61,3 +61,5 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("1_3rktr")
 text = "Return to Title"
+
+[connection signal="pressed" from="Panel/CenterContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
