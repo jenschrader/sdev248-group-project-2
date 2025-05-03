@@ -1,0 +1,83 @@
+[gd_scene load_steps=5 format=3 uid="uid://ga4n22hluby5"]
+
+[ext_resource type="Theme" uid="uid://bynbwd6b4phd7" path="res://assets/themes/theme.tres" id="1_1kdtj"]
+[ext_resource type="Script" uid="uid://cl4xyou4mb5u5" path="res://scripts/ui/dialogue.gd" id="1_6iiru"]
+[ext_resource type="Texture2D" uid="uid://c5ijtq50iexoh" path="res://assets/sprites/annie-ui.png" id="3_ar3yk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ar3yk"]
+bg_color = Color(0, 0, 0, 0.756863)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.156515, 0.109141, 0.0403625, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="Dialogue" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_6iiru")
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(480, 80)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -80.0
+offset_right = 480.0
+grow_vertical = 0
+theme = ExtResource("1_1kdtj")
+theme_override_styles/panel = SubResource("StyleBoxFlat_ar3yk")
+
+[node name="MessageLabel" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 80.0
+offset_top = 10.0
+offset_right = -62.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_1kdtj")
+theme_override_font_sizes/font_size = 21
+text = "hi"
+vertical_alignment = 1
+autowrap_mode = 2
+justification_flags = 171
+clip_text = true
+
+[node name="ContinueIcon" type="Label" parent="Panel" groups=["dialogue"]]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -45.0
+offset_top = -29.0
+offset_right = -5.0
+offset_bottom = 4.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("1_1kdtj")
+theme_override_font_sizes/font_size = 45
+text = "» "
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel"]
+position = Vector2(29, 40)
+scale = Vector2(1.75, 1.66279)
+texture = ExtResource("3_ar3yk")

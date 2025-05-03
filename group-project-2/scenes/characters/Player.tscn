@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dp7qc3mk6kn7j"]
+[gd_scene load_steps=6 format=3 uid="uid://dp7qc3mk6kn7j"]
 
 [ext_resource type="Script" uid="uid://b1xkeah46qibh" path="res://scripts/player/player.gd" id="1_pq8s5"]
-[ext_resource type="Texture2D" uid="uid://b7vbxpawbgmb0" path="res://assets/sprites/annie.png" id="2_gin2a"]
+[ext_resource type="Texture2D" uid="uid://dif7060bnxeho" path="res://assets/sprites/annie.png" id="2_gin2a"]
+[ext_resource type="Texture2D" uid="uid://b7vbxpawbgmb0" path="res://assets/sprites/annie_with_gun.png" id="3_7n8ao"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7n8ao"]
 animations = [{
@@ -12,6 +13,14 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_7n8ao")
+}],
+"loop": true,
+"name": &"has_gun",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gin2a"]
@@ -19,6 +28,7 @@ size = Vector2(64, 124)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_pq8s5")
+speed = 200
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_7n8ao")
@@ -26,3 +36,9 @@ sprite_frames = SubResource("SpriteFrames_7n8ao")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 1)
 shape = SubResource("RectangleShape2D_gin2a")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_left = 0
+limit_top = 0
+limit_right = 1280
+limit_bottom = 640
