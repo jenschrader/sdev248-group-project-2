@@ -23,6 +23,13 @@ func show_message(text):
 	continue_icon.visible = true # now set continue icon to visible, after txt is finished!
 	can_advance = true # set bool to true so txt can advance (if there's multiple lines etc)
 
+func hide_message():
+	label.text = ""
+	label.visible = false
+	continue_icon.visible = false
+	$Panel.visible = false
+	visible = false
+	can_advance = false
 
 func _input(event):
 	if event.is_action_pressed("interact") and visible and continue_icon.visible and can_advance:

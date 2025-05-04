@@ -78,6 +78,6 @@ horizontal_alignment = 2
 vertical_alignment = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Panel"]
-position = Vector2(29, 40)
-scale = Vector2(1.75, 1.66279)
+position = Vector2(40, 36.5543)
+scale = Vector2(1.4641, 1.37531)
 texture = ExtResource("3_ar3yk")

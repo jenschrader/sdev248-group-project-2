@@ -94,7 +94,7 @@ tile_map_data = PackedByteArray("AAAAAAAAAQAGAAEAAGABAAAAAQAGAAMAAGACAAAAAQAGAAM
 tile_set = SubResource("TileSet_63d5d")
 
 [node name="Player" parent="." instance=ExtResource("2_o0r6p")]
-position = Vector2(318, 402)
+position = Vector2(640, 161)
 
 [node name="Barrel" parent="." instance=ExtResource("4_63d5d")]
 position = Vector2(1116, 189)
@@ -102,17 +102,19 @@ message = "Nothing..."
 object_id = "1"
 
 [node name="Barrel2" parent="." instance=ExtResource("4_63d5d")]
-position = Vector2(1118, 341)
+position = Vector2(1132, 497)
 message = "Just a bunch of empty bottles."
 object_id = "2"
 
 [node name="Barrel3" parent="." instance=ExtResource("4_63d5d")]
-position = Vector2(1118, 476)
+position = Vector2(161, 488)
 message = "Frank better not be playing a trick on me."
 object_id = "3"
 
 [node name="WarpArea" parent="." instance=ExtResource("6_qxd2a")]
 position = Vector2(638, 6)
+spawn_position = Vector2(4, 1)
+message = "Go outside? (Y/N)"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -123,5 +125,10 @@ anchor_top = 1.0
 anchor_right = 0.0
 grow_horizontal = 1
 grow_vertical = 0
+
+[node name="Barrel4" parent="." instance=ExtResource("4_63d5d")]
+position = Vector2(156, 171)
+message = "Are those pickles?"
+object_id = "4"
 
 [connection signal="body_entered" from="WarpArea" to="Player" method="_on_warp_area_body_entered"]
