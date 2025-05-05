@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://dfflcgmef8h6y"]
+[gd_scene load_steps=16 format=4 uid="uid://dfflcgmef8h6y"]
 
 [ext_resource type="Script" uid="uid://cg64llrlob00r" path="res://scripts/ui/intro_saloon.gd" id="1_6b1iu"]
 [ext_resource type="Texture2D" uid="uid://cxi8ytq0plhre" path="res://assets/tilesets/saloon_and_clutter.png" id="1_7xbox"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://dvrrr4olouuju" path="res://scenes/objects/Barrel.tscn" id="4_63d5d"]
 [ext_resource type="PackedScene" uid="uid://ga4n22hluby5" path="res://scenes/ui/Dialogue.tscn" id="5_0adr5"]
 [ext_resource type="PackedScene" uid="uid://dnabbftq8dm30" path="res://scenes/objects/WarpArea.tscn" id="6_qxd2a"]
+[ext_resource type="PackedScene" uid="uid://pqj6ivgawcf1" path="res://scenes/ui/PauseMenu.tscn" id="8_3c2ml"]
+[ext_resource type="FontFile" uid="uid://cm2hx8aspukc7" path="res://assets/fonts/SpecialElite-Regular.ttf" id="9_k48m6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_63d5d"]
 texture = ExtResource("3_0adr5")
@@ -81,6 +83,13 @@ tile_size = Vector2i(128, 128)
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_ambr8")
 
+[sub_resource type="LabelSettings" id="LabelSettings_08as6"]
+line_spacing = 5.0
+font = ExtResource("9_k48m6")
+font_size = 21
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
 [node name="IntroSaloon" type="Node2D"]
 script = ExtResource("1_6b1iu")
 
@@ -111,6 +120,11 @@ position = Vector2(161, 488)
 message = "Frank better not be playing a trick on me."
 object_id = "3"
 
+[node name="Barrel4" parent="." instance=ExtResource("4_63d5d")]
+position = Vector2(156, 171)
+message = "Are those pickles?"
+object_id = "4"
+
 [node name="WarpArea" parent="." instance=ExtResource("6_qxd2a")]
 position = Vector2(638, 6)
 spawn_position = Vector2(4, 1)
@@ -126,9 +140,15 @@ anchor_right = 0.0
 grow_horizontal = 1
 grow_vertical = 0
 
-[node name="Barrel4" parent="." instance=ExtResource("4_63d5d")]
-position = Vector2(156, 171)
-message = "Are those pickles?"
-object_id = "4"
+[node name="PauseMenu" parent="." instance=ExtResource("8_3c2ml")]
+visible = false
+
+[node name="Label" type="Label" parent="."]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 206.0
+offset_bottom = 32.0
+text = "Press ESC to pause"
+label_settings = SubResource("LabelSettings_08as6")
 
 [connection signal="body_entered" from="WarpArea" to="Player" method="_on_warp_area_body_entered"]

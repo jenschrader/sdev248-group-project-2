@@ -4,9 +4,15 @@ extends Control
 @onready var continue_icon = $Panel/ContinueIcon
 
 var can_advance := false
+var message_showing := false
 
 func show_message(text):
+	if message_showing:
+		return  # prevent overlapping calls
+		
 	print("Showing message (typewriter):", text) # debug
+	
+	message_showing = true
 	label.text = "" # reset text string label b4 starting
 	label.visible = true # make sure label is visible
 	$Panel.visible = true # make sure panel is visible
@@ -22,7 +28,8 @@ func show_message(text):
 	await get_tree().create_timer(0.3).timeout  # slight pause before continue
 	continue_icon.visible = true # now set continue icon to visible, after txt is finished!
 	can_advance = true # set bool to true so txt can advance (if there's multiple lines etc)
-
+	message_showing = false
+	
 func hide_message():
 	label.text = ""
 	label.visible = false
@@ -30,6 +37,7 @@ func hide_message():
 	$Panel.visible = false
 	visible = false
 	can_advance = false
+	message_showing = false
 
 func _input(event):
 	if event.is_action_pressed("interact") and visible and continue_icon.visible and can_advance:

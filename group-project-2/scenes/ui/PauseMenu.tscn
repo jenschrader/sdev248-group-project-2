@@ -1,0 +1,73 @@
+[gd_scene load_steps=6 format=3 uid="uid://pqj6ivgawcf1"]
+
+[ext_resource type="Script" uid="uid://dmki7qomgefjq" path="res://scripts/ui/pause_menu.gd" id="1_7ida2"]
+[ext_resource type="Theme" uid="uid://bynbwd6b4phd7" path="res://assets/themes/theme.tres" id="1_vb6pq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ida2"]
+bg_color = Color(0.04, 0.04, 0.04, 0.956863)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+
+[sub_resource type="LabelSettings" id="LabelSettings_7ida2"]
+font_size = 72
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_n5dsq"]
+font_size = 36
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[node name="PauseMenu" type="CanvasLayer"]
+script = ExtResource("1_7ida2")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_vb6pq")
+theme_override_styles/panel = SubResource("StyleBoxFlat_7ida2")
+
+[node name="CenterContainer" type="CenterContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -167.0
+offset_bottom = 167.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 64
+
+[node name="PauseTitle" type="Label" parent="Panel/CenterContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Paused"
+label_settings = SubResource("LabelSettings_7ida2")
+horizontal_alignment = 1
+
+[node name="ControlSettingsLabel" type="Label" parent="Panel/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Control Settings:
+
+Arrow Keys — Move
+Enter — Interact
+Y / N — Confirm / Cancel
+Esc — Pause"
+label_settings = SubResource("LabelSettings_n5dsq")
+horizontal_alignment = 1
+
+[node name="Resume" type="Button" parent="Panel/CenterContainer/VBoxContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+text = "Resume"
+
+[connection signal="pressed" from="Panel/CenterContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]

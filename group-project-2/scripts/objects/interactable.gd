@@ -26,6 +26,7 @@ func interact():
 		get_tree().call_group("dialogue", "show_message", "Now I better hurry to the show!")
 		
 		await get_tree().create_timer(2).timeout
+		await Fader.fade_out(2.0)
 		get_tree().change_scene_to_file("res://scenes/ui/LevelComplete.tscn")
 	else:
 		get_tree().call_group("dialogue", "show_message", message)

@@ -1,12 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://efxtolgv7k2p"]
+[gd_scene load_steps=8 format=3 uid="uid://efxtolgv7k2p"]
 
 [ext_resource type="Script" uid="uid://crjiw8rulnf4e" path="res://scripts/ui/cutscene.gd" id="1_wchr6"]
 [ext_resource type="Theme" uid="uid://bynbwd6b4phd7" path="res://assets/themes/theme.tres" id="2_bbya1"]
+[ext_resource type="AudioStream" uid="uid://d26uyxuvbwem7" path="res://assets/audio/typing.mp3" id="3_027n6"]
+[ext_resource type="FontFile" uid="uid://cm2hx8aspukc7" path="res://assets/fonts/SpecialElite-Regular.ttf" id="4_43212"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_bbya1"]
 line_spacing = 10.0
 paragraph_spacing = 20.0
 font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_7ojv4"]
+font_size = 36
+
+[sub_resource type="LabelSettings" id="LabelSettings_43212"]
+font = ExtResource("4_43212")
+font_size = 20
 
 [node name="Cutscene" type="Control"]
 layout_mode = 3
@@ -53,7 +62,35 @@ offset_right = -65.0
 offset_bottom = -42.0
 grow_horizontal = 0
 grow_vertical = 0
+mouse_default_cursor_shape = 2
 theme = ExtResource("2_bbya1")
 text = "Continue"
+
+[node name="TypeSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_027n6")
+volume_db = -10.0
+
+[node name="FastForwardIcon" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 283.0
+offset_top = 579.0
+offset_right = 342.0
+offset_bottom = 643.0
+theme_override_fonts/font = ExtResource("4_43212")
+text = ">>"
+label_settings = SubResource("LabelSettings_7ojv4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FastForwardLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 595.0
+offset_right = 283.0
+offset_bottom = 618.0
+text = "Press \"s\" to fast forward"
+label_settings = SubResource("LabelSettings_43212")
+vertical_alignment = 1
 
 [connection signal="pressed" from="ColorRect/ContinueButton" to="." method="_on_continue_button_pressed"]

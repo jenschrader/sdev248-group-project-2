@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://b3q7uc3clf0m1"]
+[gd_scene load_steps=12 format=4 uid="uid://b3q7uc3clf0m1"]
 
 [ext_resource type="Texture2D" uid="uid://bi0sefdfqjbxg" path="res://assets/tilesets/grass_and_railcars.png" id="1_7c8rq"]
 [ext_resource type="PackedScene" uid="uid://6nfk7h6janf6" path="res://scenes/objects/Railcar.tscn" id="2_0qm1f"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dnabbftq8dm30" path="res://scenes/objects/WarpArea.tscn" id="4_2o0me"]
 [ext_resource type="PackedScene" uid="uid://dp7qc3mk6kn7j" path="res://scenes/characters/Player.tscn" id="5_2rbbb"]
 [ext_resource type="PackedScene" uid="uid://ga4n22hluby5" path="res://scenes/ui/Dialogue.tscn" id="6_6027q"]
+[ext_resource type="PackedScene" uid="uid://pqj6ivgawcf1" path="res://scenes/ui/PauseMenu.tscn" id="7_ptyi1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0qm1f"]
 texture = ExtResource("1_7c8rq")
@@ -106,5 +107,8 @@ anchor_top = 1.0
 anchor_right = 0.0
 grow_horizontal = 1
 grow_vertical = 0
+
+[node name="PauseMenu" parent="." instance=ExtResource("7_ptyi1")]
+visible = false
 
 [editable path="Player"]

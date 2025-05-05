@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://d2slwtf0xksl4"]
+[gd_scene load_steps=8 format=3 uid="uid://d2slwtf0xksl4"]
 
 [ext_resource type="Script" uid="uid://da30s5k1lpsp1" path="res://scripts/ui/start_screen.gd" id="1_r6ble"]
 [ext_resource type="Texture2D" uid="uid://chvkam034qjg3" path="res://assets/backgrounds/desert_BG.png" id="2_8qqbg"]
 [ext_resource type="FontFile" uid="uid://cm2hx8aspukc7" path="res://assets/fonts/SpecialElite-Regular.ttf" id="3_75o78"]
 [ext_resource type="Texture2D" uid="uid://bhofqku3tiug8" path="res://assets/sprites/bullet.png" id="4_w26h4"]
-[ext_resource type="AudioStream" uid="uid://buyp11g5shg6p" path="res://assets/audio/western.mp3" id="5_w26h4"]
 [ext_resource type="AudioStream" uid="uid://cu0dyiwaqhm2j" path="res://assets/audio/gunshot.mp3" id="6_lq8pi"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_lq8pi"]
@@ -45,10 +44,6 @@ position = Vector2(634, 324)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("4_w26h4")
 
-[node name="western" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("5_w26h4")
-autoplay = true
-
 [node name="gunshot" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_lq8pi")
 
@@ -78,13 +73,3 @@ text = "Press Space to Start"
 label_settings = SubResource("LabelSettings_8qqbg")
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="FadeRect" type="ColorRect" parent="."]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
