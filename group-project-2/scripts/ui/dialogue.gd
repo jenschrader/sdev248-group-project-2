@@ -1,16 +1,22 @@
 extends Control
 
+# ───────────────────────────────────────────────
+# dialogue ui (typewriter effect with continue prompt)
+# handles showing text with delays, guards against spam
+# ───────────────────────────────────────────────
+
 @onready var label = $Panel/MessageLabel
 @onready var continue_icon = $Panel/ContinueIcon
 
 var can_advance := false
 var message_showing := false
 
+# displays a message using typewriter animation
 func show_message(text):
 	if message_showing:
 		return  # prevent overlapping calls
 		
-	print("Showing message (typewriter):", text) # debug
+	print("showing message (typewriter):", text) # debug; optional
 	
 	message_showing = true
 	label.text = "" # reset text string label b4 starting
@@ -29,7 +35,8 @@ func show_message(text):
 	continue_icon.visible = true # now set continue icon to visible, after txt is finished!
 	can_advance = true # set bool to true so txt can advance (if there's multiple lines etc)
 	message_showing = false
-	
+
+# hides the message and resets dialogue state
 func hide_message():
 	label.text = ""
 	label.visible = false
@@ -39,6 +46,8 @@ func hide_message():
 	can_advance = false
 	message_showing = false
 
+
+# handles input for advancing after message is finished
 func _input(event):
 	if event.is_action_pressed("interact") and visible and continue_icon.visible and can_advance:
 		visible = false
