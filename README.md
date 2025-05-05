@@ -1,7 +1,11 @@
 
 <img width="1000" alt="lil_sure_shot" src="https://github.com/user-attachments/assets/0e2cddad-c634-4d6e-8135-f718254fbbb2" />
 
+
 # 🎯🤠 Little Sure Shot
+
+> **📁 This repository is archived and read-only.**  
+> *Final version tagged as `v1.0` and archived on May 5, 2025.*
 
 A Godot 4.4 game inspired by Annie Oakley, created as a group project for our game development class. 
 
