@@ -1,8 +1,11 @@
+
+<img width="1000" alt="lil_sure_shot" src="https://github.com/user-attachments/assets/0e2cddad-c634-4d6e-8135-f718254fbbb2" />
+
 # 🎯🤠 Little Sure Shot
 
 A Godot 4.4 game inspired by Annie Oakley, created as a group project for our game development class. 
 
-***Play as Annie as she searches for her missing gun and defends the town from invading bandits!***
+***Play as Annie as she searches for her missing gun across a saloon and train yard before the big show!***
 
 ---
 
@@ -13,21 +16,21 @@ A Godot 4.4 game inspired by Annie Oakley, created as a group project for our ga
 - **Git** installed on your machine
 
 ---
-
-### 🔄 How to Clone & Open the Project
-
-1. **Clone the repository** (use HTTPS):
-   
-   ```bash
-   git clone https://github.com/jenschrader/sdev248-group-project-2.git
-   cd sdev248-group-project-2
-   ```
-2. **Switch to the develop branch**:
-   ```bash
-   git checkout develop
-   ```
-
-3. **Open Godot**, click **"Import"**, and select the `project.godot` file inside the folder you just cloned.
+> [!TIP]
+> ### 🔄 How to Clone & Open the Project
+>
+> 1. **Clone the repository** (use HTTPS):
+>   
+>   ```bash
+>   git clone https://github.com/jenschrader/sdev248-group-project-2.git
+>   cd sdev248-group-project-2
+>   ```
+> 2. **Switch to the develop branch**:
+>   ```bash
+>   git checkout develop
+>   ```
+>
+> 3. **Open Godot**, click **"Import"**, and select the `project.godot` file inside the folder you just cloned.
 
 ---
 
@@ -35,51 +38,116 @@ A Godot 4.4 game inspired by Annie Oakley, created as a group project for our ga
 ```
 res://
 ├── assets/
-│   ├── fonts/          # UI and cutscene fonts
-│   ├── sprites/        # Player, NPC, enemies, etc.
-│   └── tilesets/       # Map tilesets
+│   ├── audio/           # sound effects and music
+│   ├── backgrounds/     # decorative images
+│   ├── fonts/           # fonts used across UI
+│   ├── sprites/         # character and item sprites
+│   ├── themes/          # custom ui themes
+│   └── tilesets/        # tiles for level design
 │
 ├── scenes/
-│   ├── ui/             # Start screen, cutscene, level complete
-│   ├── levels/         # Intro saloon and town levels
-│   ├── characters/     # Player, NPC, enemies
-│   └── objects/        # Interactables, items, etc.
+│   ├── characters/      # player 
+│   ├── levels/          # intro saloon, town level
+│   ├── objects/         # interactables (barrels and railcars)
+│   └── ui/              # cutscene, dialogue, pause menu, etc
 │
 ├── scripts/
-│   ├── player/         # Player movement, shooting
-│   ├── enemies/        # Bandit behavior
-│   ├── systems/        # Game management, state logic
-│   └── ui/             # UI scene scripts
+│   ├── objects/         # scripts for interactables
+│   ├── player/          # player movement, animation, interaction
+│   ├── systems/         # game manager logic
+│   └── ui/              # dialogue, fader, pause logic, etc
 │
-├── main.tscn           # Entry point (starts at StartScreen)
-├── project.godot       # Godot project config
+├── project.godot        # godot project config (entry point: start screen)
 └── .gitignore
 ```
 ---
-## 📌 Team Guidelines
-- ⬆️ Only push to the `develop` branch.
-   -  `main` is protected — changes go through pull requests.
-- 📂 Keep things organized — add your scenes/scripts in the appropriate folders.
-- 📲 Communicate before adding large features — this helps avoid merge conflicts and confusion.
-
+> [!IMPORTANT]
+> ## 📌 Team Guidelines
+> - ⬆️ Only push to the `develop` branch.
+>   -  `main` is protected — changes go through pull requests.
+>   
+> - 📂 Keep things organized — add your scenes/scripts in the appropriate folders.
+>  
+> - 📲 Communicate before adding large features — this helps avoid merge conflicts and confusion.
 ---
 
-## 🎬 Game Flow (WIP)
-1. **StartScreen** &rarr; Button to begin
-2. **Cutscene** &rarr; Text scroll to set up story
-3. **IntroSaloon** &rarr; Talk to NPC, find weapon, trigger swinging door
-4. **TownLevel** &rarr; Fight bandits, win or lose
-5. **LevelComplete** &rarr; Level completion screen, return to start for replay
-
+## 🎬 Game Flow 
+1. **StartScreen** &rarr; press start to begin
+   
+2. **Cutscene** &rarr; typewriter-style story setup with optional fast-forward
+   
+3. **IntroSaloon** &rarr; search barrels for the missing gun; all must be checked before leaving
+   
+4. **TownLevel** &rarr; explore the railcars to find the gun; triggers final cutscene
+   
+5. **LevelComplete** &rarr; level completion screen with button to return to start
+---
+> [!NOTE]
+> ## 🎮 Controls
+> - Move: Arrow Keys / WASD
+>
+> - Interact: Enter
+>  
+> - Pause: Escape
+>
+> - Confirm Warp: Y / N
+>
+> - Speed up Cutscene: Hold S
 ---
 
 ## ✅ Project Goals
-This project will demonstrate:
-- 🎮 Player movement and interaction
-- 🗨️ NPC dialogue
-- ☠️ Enemy AI with non-random behavior
-- 🗺️ `NavigationMesh` based movement
-- 🚪 A hinge joint mechanic (saloon door)
-- 🎥 Cutscenes (intro + end)
-- ⚡ Event triggers based on player actions
-- 💥 Proper collision behavior
+This project demonstrates:
+- 🎮 Player movement, animations, and directional interaction
+
+- 🗨️ Interactive dialogue system with typewriter effect
+
+- 🎥 Intro and outro cutscenes with audio and visual polish
+
+- ⚡ Dynamic game state and object tracking via autoloaded manager
+
+- 💥 Collision-based interaction and environment navigation
+
+- 🎵 Global audio playback and sound feedback integration
+
+---
+
+## 🎭 Team Roles
+- 🤠 **[@AngelaRileyScott](https://github.com/AngelaRileyScott)** - Narrative Design & Environment Artist 
+
+- 🤠 **[@gwperaza](https://github.com/gwperaza)** - Character Artist & Gameplay Assets
+
+- 🤠 **[@apace26](https://github.com/apace26)** - Developer & QA
+
+- 🤠 **[@jenschrad](https://github.com/jenschrader)**  - Developer & Game Design
+
+---
+
+## 🎨 Asset Credits
+Special thanks to the creators of the free assets used in this project:
+
+- 🔫 **Gunshot Sound Effect**  
+  [Gunshot Sounds – OpenGameArt.org](https://opengameart.org/content/gunshot-sounds)
+
+- 🎼 **Western Music Track**  
+  [Western – OpenGameArt.org](https://opengameart.org/content/western)
+
+- 🌄 **Opening and Ending Backgrounds**  
+  [Layered Scrolling Backgrounds – OpenGameArt.org](https://opengameart.org/content/several-scrolling-backgrounds-and-layerable-runners)
+
+- ⌨️ **Typewriter Sound Effect**  
+  [Typewriter Button Slide – Pixabay](https://pixabay.com/sound-effects/typewriter-button-slide-1a-47722/)
+
+All assets are used under their respective licenses for educational purposes.
+
+---
+
+> ## **Thanks for playing 🤠🎯**  
+> *...and don't forget to stay sharp, little sure shot.* ✨
+
+---
+
+<br> 
+
+
+🔹 *Spring 2025* 🔹 *SDEV-248: Advanced Simulation & Game Design* 🔹 *Created with* ❤️ *using Godot Engine 4.4* 🔹 
+
