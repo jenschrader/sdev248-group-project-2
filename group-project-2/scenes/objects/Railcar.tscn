@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://6nfk7h6janf6"]
+
+[ext_resource type="Script" uid="uid://bgcospel2dnfu" path="res://scripts/objects/interactable.gd" id="1_a3law"]
+[ext_resource type="Texture2D" uid="uid://cfjav14feoig" path="res://assets/sprites/railcars.png" id="1_nm5dk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a3law"]
+size = Vector2(423, 190)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7awm3"]
+size = Vector2(401, 120)
+
+[node name="Railcar" type="Area2D"]
+script = ExtResource("1_a3law")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_nm5dk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 9)
+shape = SubResource("RectangleShape2D_a3law")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-1.5, 14)
+shape = SubResource("RectangleShape2D_7awm3")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

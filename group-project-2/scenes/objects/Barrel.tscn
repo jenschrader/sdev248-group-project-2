@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://dvrrr4olouuju"]
+
+[ext_resource type="Texture2D" uid="uid://b41inn8iiw0u2" path="res://assets/sprites/barrel.png" id="1_b8vpq"]
+[ext_resource type="Script" uid="uid://bgcospel2dnfu" path="res://scripts/objects/interactable.gd" id="1_e0pcm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e0pcm"]
+size = Vector2(84, 66)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ui56p"]
+size = Vector2(72, 65)
+
+[node name="Barrel" type="Area2D"]
+script = ExtResource("1_e0pcm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_b8vpq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_e0pcm")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_ui56p")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

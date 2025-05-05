@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bkysv77kf5rg5"]
+
+[ext_resource type="AudioStream" uid="uid://buyp11g5shg6p" path="res://assets/audio/western.mp3" id="1_qucha"]
+
+[node name="GlobalMusic" type="Node"]
+
+[node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_qucha")
+volume_db = -10.0
+autoplay = true
